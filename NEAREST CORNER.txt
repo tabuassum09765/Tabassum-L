@@ -1,0 +1,37 @@
+def distance_to_nearest_corner(seat_number, desk_array):
+    # Step 1: Find the index of Bruce's desk number
+    try:
+        bruce_index = desk_array.index(seat_number)
+    except ValueError:
+        return -1  # This case should not happen as per the problem statement
+
+    # Step 2: Locate the gaps and their adjacent corners
+    gaps_indices = [i for i, desk in enumerate(desk_array) if desk == "-"]
+
+    corner_seats = set()
+    for gap_index in gaps_indices:
+        # Check left corner seat if exists
+        if gap_index > 0:
+            corner_seats.add(gap_index - 1)
+        # Check right corner seat if exists
+        if gap_index < len(desk_array) - 1:
+            corner_seats.add(gap_index + 1)
+
+    # Step 3: Check if Bruce's desk is a corner seat
+    if bruce_index in corner_seats:
+        return 0
+
+    # Step 4: Calculate the minimum distance to the nearest corner seat
+    min_distance = min(abs(bruce_index - corner_index) for corner_index in corner_seats)
+
+    return min_distance
+
+# Input
+bruce_desk = input().strip()
+desks = input().strip().split()
+
+# Get the result
+result = distance_to_nearest_corner(bruce_desk, desks)
+
+# Output the result
+print(result)
