@@ -1,0 +1,21 @@
+def unique_marbles_left(N, A, B):
+    unique_counts = set()
+    queue = [N]  # Initialize with the starting number of marbles
+
+    while queue:
+        current = queue.pop(0)  # Get the current number of marbles
+        if current > 0 and current not in unique_counts:
+            unique_counts.add(current)  # Add to the unique counts
+            # Calculate the next possible states
+            if current - A >= 0:
+                queue.append(current - A)
+            if current - B >= 0:
+                queue.append(current - B)
+
+    return len(unique_counts)  # Return the number of unique positive counts
+
+# Sample Input
+N, A, B = map(int, input().split())
+# Get the result
+output = unique_marbles_left(N, A, B)
+print(output)  # Output the result
