@@ -1,0 +1,14 @@
+def count_odd_digit_numbers(N):
+    count = 0
+    for x in range(1, N + 1):
+        # Convert number to string to count digits
+        if len(str(x)) % 2 == 1:
+            count += 1
+    return count
+
+# Input reading
+N = int(input().strip())
+
+# Get the result and print it
+result = count_odd_digit_numbers(N)
+print(result)
