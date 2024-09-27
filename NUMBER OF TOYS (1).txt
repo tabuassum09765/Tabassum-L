@@ -1,0 +1,12 @@
+def remaining_toys(total_toys, donated_toys):
+    return total_toys - donated_toys
+
+# Get input from the user
+input_values = input()
+total_toys, donated_toys = map(int, input_values.split())
+
+# Calculate remaining toys
+remaining = remaining_toys(total_toys, donated_toys)
+
+# Output the result
+print(f"The remaining number of toys = {remaining}"
