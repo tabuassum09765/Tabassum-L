@@ -1,0 +1,25 @@
+def find_peak(arr):
+    n = len(arr)
+    
+    # Check for the first element
+    if n == 1 or arr[0] >= arr[1]:
+        return 0
+    
+    # Check for the last element
+    if arr[n - 1] >= arr[n - 2]:
+        return n - 1
+    
+    # Check for peak elements in the middle of the array
+    for i in range(1, n - 1):
+        if arr[i] >= arr[i - 1] and arr[i] >= arr[i + 1]:
+            return i
+            
+    return -1  # In case there is no peak, but per problem statement, there should be one.
+
+# Read input
+N = int(input().strip())
+arr = list(map(int, input().strip().split()))
+
+# Get the result and print it
+result = find_peak(arr)
+print(result)
