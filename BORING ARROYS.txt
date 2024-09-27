@@ -1,0 +1,16 @@
+def max_score(N, A):
+    # Sort the array
+    A.sort()
+    
+    score = 0
+    # Pair the smallest with the largest
+    for i in range(N // 2):
+        score += abs(A[N - 1 - i] - A[i])
+    
+    return score
+# Sample Input
+N = int(input())
+A = list(map(int, input().split()))
+# Get the result
+output = max_score(N, A)
+print(output)  # Output the result
