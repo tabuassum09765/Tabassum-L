@@ -1,0 +1,12 @@
+def can_divide_into_even_parts(N):
+    if N % 2 != 0:
+        return "NO"  # N is odd, cannot be split into two even numbers
+    elif N < 4:
+        return "NO"  # N is even but less than 4, cannot be split into two positive even numbers
+    else:
+        return "YES"  # N is even and >= 4, can be split into two even numbers
+
+# Example usage
+N = int(input().strip())
+result = can_divide_into_even_parts(N)
+print(result)
