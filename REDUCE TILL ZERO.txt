@@ -1,0 +1,16 @@
+def compute_final_x(x, y):
+    while y != 0:
+        if x < y:
+            x, y = y, x  # Swap values
+        t = x - y
+        x = y
+        y = t
+    return x
+
+# Input
+x = int(input().strip())
+y = int(input().strip())
+
+# Output the result
+result = compute_final_x(x, y)
+print(result)
