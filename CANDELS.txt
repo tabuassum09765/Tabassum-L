@@ -1,0 +1,16 @@
+def last_child(N, K, A):
+    # Adjust A to be 0-based index
+    start_index = A - 1
+    
+    # Calculate the final position using modular arithmetic
+    final_position = (start_index + K - 1) % N
+    
+    # Convert back to 1-based index
+    return final_position + 1
+
+# Read input
+N, K, A = map(int, input().strip().split())
+
+# Get the result and print it
+result = last_child(N, K, A)
+print(result)
