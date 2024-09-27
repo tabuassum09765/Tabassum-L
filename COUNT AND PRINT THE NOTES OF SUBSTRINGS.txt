@@ -1,0 +1,43 @@
+def count_valid_substrings(n, s, k):
+    if k == 0:
+        return 0
+    
+    count = 0
+    left = 0
+    count0 = 0
+    count1 = 0
+    
+    for right in range(n):
+        # Update counts based on the current character
+        if s[right] == '0':
+            count0 += 1
+        else:
+            count1 += 1
+        
+        # Shrink the window until it's valid (contains at most k zeros and k ones)
+        while count0 > k or count1 > k:
+            if s[left] == '0':
+                count0 -= 1
+            else:
+                count1 -= 1
+            left += 1
+        
+        # All substrings ending at `right` and starting from `left` to `right` are valid
+        count += right - left + 1
+    
+    return count
+
+# Read input
+import sys
+input = sys.stdin.read
+data = input().splitlines()
+
+n = int(data[0])  # Length of the string
+s = data[1]       # The string itself
+k = int(data[2])  # The integer k
+
+# Get the result
+result = count_valid_substrings(n, s, k)
+
+# Print the output
+print(result
