@@ -1,0 +1,11 @@
+def highest_sum(X, Y, Z):
+    # Put the numbers in a list and sort them
+    numbers = [X, Y, Z]
+    numbers.sort()  # Sort in ascending order
+    # The highest sum is the sum of the two largest numbers
+    return numbers[1] + numbers[2]
+
+# Sample Input
+X, Y, Z = map(int, input().split())
+result = highest_sum(X, Y, Z)
+print(result)  # Output: the highest possible sum
