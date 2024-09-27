@@ -1,0 +1,33 @@
+def count_commas(n):
+    total_commas = 0
+
+    # Start with the first range of numbers
+    digit_length = 1
+    start = 1
+    
+    while start <= n:
+        # Determine the end of the current range
+        end = min(n, 10 ** digit_length - 1)
+        
+        # Check if we are in a range that uses commas
+        if digit_length > 3:
+            # Number of commas per number in this range
+            commas_per_number = (digit_length - 1) // 3
+            
+            # Count of numbers in this range
+            count_of_numbers = end - start + 1
+            
+            # Update total commas
+            total_commas += count_of_numbers * commas_per_number
+        
+        # Move to the next range
+        start *= 10  # Move to the next power of 10
+        digit_length += 1  # Increase the digit length
+    
+    return total_commas
+
+# Input
+n = int(input().strip())
+# Calculate and output the total number of commas
+result = count_commas(n)
+print(result)
