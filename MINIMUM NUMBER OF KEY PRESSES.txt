@@ -1,0 +1,19 @@
+def min_key_presses(s: str) -> int:
+    target = int(s)
+    presses = 0
+    
+    while target > 0:
+        if target % 100 == 0:
+            target //= 100
+            presses += 1  # Count the '00' press
+        else:
+            last_digit = target % 10
+            target = (target - last_digit) // 10
+            presses += 1  # Count the digit press
+            
+    return presses
+
+# Example usage
+input_str = input()
+result = min_key_presses(input_str)
+print(result)
