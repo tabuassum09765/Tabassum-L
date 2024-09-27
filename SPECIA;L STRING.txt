@@ -1,0 +1,28 @@
+def min_ascii_distance(A, S):
+    total_distance = 0
+
+    # Set of characters in S for quick lookup
+    s_set = set(S)
+
+    for char in A:
+        if char in s_set:
+            continue  # No distance if the character is already in S
+
+        # Calculate minimum ASCII distance for the current character
+        min_distance = float('inf')  # Start with a large value
+        for s_char in S:
+            distance = abs(ord(char) - ord(s_char))
+            min_distance = min(min_distance, distance)
+
+        # Add the minimum distance to the total distance
+        total_distance += min_distance
+
+    return total_distance
+
+# Read input
+A = input().strip()  # Input string A
+S = input().strip()  # Input string S
+
+# Get the result and print it
+result = min_ascii_distance(A, S)
+print(result)
