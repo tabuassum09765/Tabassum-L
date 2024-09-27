@@ -1,0 +1,17 @@
+def farthest_coordinate(A):
+    position = 0  # Starting position
+    max_distance = 0  # To track the farthest position reached
+    
+    # Simulate the movements
+    for i in range(len(A)):
+        position += A[i]  # Move according to the current instruction
+        max_distance = max(max_distance, abs(position))  # Update max_distance if the current position is farther
+    
+    return max_distance
+
+# Read input
+input_array = list(map(int, input().strip().split()))
+
+# Get the result and print it
+result = farthest_coordinate(input_array)
+print(result)
