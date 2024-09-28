@@ -1,0 +1,26 @@
+def sort_even_odd():
+    import sys
+    input = sys.stdin.read
+    data = input().splitlines()
+
+    N = int(data[0])  # Read the number of elements
+    arr = list(map(int, data[1].split()))  # Read the elements of the array
+
+    even = []
+    odd = []
+
+    # Separate the elements into even and odd lists
+    for num in arr:
+        if num % 2 == 0:
+            even.append(num)
+        else:
+            odd.append(num)
+
+    # Combine even and odd lists
+    sorted_array = even + odd
+
+    # Print the result
+    print(sorted_array)
+
+# Call the function
+sort_even_odd()
