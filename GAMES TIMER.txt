@@ -1,0 +1,18 @@
+def maximum_games():
+    import sys
+    input = sys.stdin.read
+    data = input().splitlines()
+    
+    N = int(data[0])  # Number of days
+    free_hours = list(map(int, data[1].split()))  # Free hours for each day
+
+    total_games = 0
+    for hours in free_hours:
+        # Calculate games that can be played on this day
+        games_today = (hours * 60) // 10
+        total_games += games_today
+    
+    print(total_games)
+
+# Call the function
+maximum_games()
